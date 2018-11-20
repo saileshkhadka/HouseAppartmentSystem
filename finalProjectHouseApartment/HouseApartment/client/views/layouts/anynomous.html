@@ -1,0 +1,10 @@
+﻿<div id="app" class="app" data-custom-page="" data-off-canvas-nav="" data-ng-class="{'layout-boxed': admin.layout}">
+    <header data-ng-controller="HeaderCtrl" data-ui-view="header" id="header" class="header-container {{admin.navbarHeaderColor}}" data-ng-class="{'header-fixed': admin.fixedHeader}"> </header>
+    <div class="main-container">
+        <aside data-ui-view="left" id="nav-container" class="nav-container {{admin.asideColor}}" data-ng-class="{'nav-fixed': admin.fixedSidebar, 'nav-horizontal' : admin.menu}"> </aside>
+        <div id="content" class="content-container animate-fade-up" data-ui-view="">
+        </div>
+        <!--<div id="config" class="config hidden-xs" data-ui-view="settings-panel"></div>-->
+        <aside data-ui-view="right-sidebar" id="rsidebar" class="rsidebar hidden-xs"> </aside>
+    </div>
+</div>

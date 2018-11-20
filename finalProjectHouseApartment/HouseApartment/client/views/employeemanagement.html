@@ -1,0 +1,156 @@
+﻿<div class="card">
+    <h3 class="card-title">Employee Records</h3>
+    <div class="pull-right">
+        <span><input type="text" placeholder="Search Employee" ng-model="search.Name"></span>
+        <button type="submit"><i class="fa fa-search"></i></button>
+
+    </div>
+    <button class="btn btn-default btn-success btn-sm" data-toggle="modal" data-target="#myModal2">Add </button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <!--<th>EmployeeId</th>-->
+                    <th>Employee Name</th>
+                    <th>Address</th>
+                    <th>Contact Number</th>
+                    <!--<th>DepartmentId</th>-->
+                    <th>Department Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="items in EmployeeList">
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <!--<td>{{items.EmployeeId}}</td>-->
+                    <td>{{items.EmployeeName}}</td>
+                    <td>{{items.Address}}</td>
+                    <td>{{items.ContactNumber}}</td>
+                    <!--<td>{{items.DepartmentId}}</td>-->
+                    <td>{{items.DepartmentName}}</td>
+                    <td>{{items.Status}}</td>
+                    <td>
+                        <button class="btn btn-default btn-success" ng-click="getById(items.Id)" data-toggle="modal" data-target="#myModal"> <i class="fa fa-pencil" aria-hidden="true"></i>  </button>
+                        <button type="button" class="btn btn-danger" ng-click="deleteemployee(items.Id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    <ul uib-pagination total-items="(result|filter:search).length" items-per-page="itemsPerPage" ng-model="currentPage" max-size="5" boundary-links="true" rotate="false"></ul>
+    </div>
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <form ng-submit="addemployees(AddEmployee)">
+                    <!--<div class="form-group">
+                        <label class="control-label">EmployeeId</label>
+                        <input class="form-control" type="text" placeholder="EmployeeId" ng-model="Addemployee.EmployeeId">
+                    </div>-->
+                    <div class="form-group">
+                        <label class="control-label">Employee Name</label>
+                        <input class="form-control" type="text" placeholder="EmployeeName" ng-model="AddEmployee.EmployeeName">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Address</label>
+                        <input class="form-control" type="text" placeholder="Address" ng-model="AddEmployee.Address">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Contact Number</label>
+                        <input class="form-control" type="text" placeholder="ContactNumber" ng-model="AddEmployee.ContactNumber">
+                    </div>
+                    <!--<div class="form-group">
+                        <label class="control-label">DepartmentId</label>
+                        <input class="form-control" type="text" placeholder="DepartmentId" ng-model="Addemployee.DepartmentId">
+                    </div>-->
+                    <div class="form-group">
+                        <!--<label class="control-label">DepartmentName</label>
+                        <input class="form-control" type="text" placeholder="DepartmentName" ng-model="Addemployee.DepartmentName">-->
+                        <label for="Users" class="control-label">Department Name</label>
+                        <select DepartmentID='DepartmentID' id="DepartmentID" class="form-control" ng-model="AddEmployee.DepartmentId" required>
+                            <option ng-value="data.DepartmentID" ng-repeat="data in DepartmentList">{{data.DepartmentName}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Status</label>
+                        <input type="checkbox" ng-model="AddEmployee.Status">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary icon-btn"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add</button>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <form ng-submit="UpdateEmployee(EditEmployee)">
+                    <!--<div class="form-group">
+                        <label class="control-label">EmployeeId</label>
+                        <input class="form-control" type="text" placeholder="EmployeeId" ng-model="Editemployee.EmployeeId">
+                    </div>-->
+                    <div class="form-group">
+                        <label class="control-label">Employee Name</label>
+                        <input class="form-control" type="text" placeholder="EmployeeName" ng-model="EditEmployee.EmployeeName">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Address</label>
+                        <input class="form-control" type="text" placeholder="Address" ng-model="EditEmployee.Address">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Contact Number</label>
+                        <input class="form-control" type="text" placeholder="ContactNumber" ng-model="EditEmployee.ContactNumber">
+                    </div>
+                    <!--<div class="form-group">
+                        <label class="control-label">Status</label>
+                        <input class="form-control" type="text" placeholder="DepartmentId" ng-model="Editemployee.DepartmentId">
+                    </div>-->
+                    <div class="form-group">
+                        <!--<label class="control-label">DepartmentName</label>
+                        <input class="form-control" type="text" placeholder="DepartmentName" ng-model="Editemployee.DepartmentName">-->
+                         <label for="Users" class="control-label">Department Name</label>
+                        <select  id="DepartmentID" class="form-control" ng-model="EditEmployee.DepartmentID" required>
+                            <option ng-repeat="data in DepartmentList" value={{data.DepartmentID}}>{{data.DepartmentName}}</option>
+                        </select>
+                        <!--<select>
+                            <optionng-model ="stateId" data-ng-repeat="st in states" value="{{st.StateId}}">{{st.StateName}}</option>
+                        </select>--> 
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Status</label>
+                        <input type="checkbox" ng-model="EditEmployee.Status">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary icon-btn"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update</button>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

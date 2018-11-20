@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>House Apartment Admin</title>
+
+</head>
+<body class="sidebar-mini fixed" ng-app="myApp">
+    <div data-ui-view=""> </div>
+    <!-- Javascripts-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+    <script src="Scripts/pace.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/plugins/bootstrap-datepicker.min.js"></script>
+    <script src="js/plugins/bootstrap-notify.min.js"></script>
+    <script src="js/main.js"></script>
+    <!--signlar R-->
+    <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <script src="js/angular/angular.js"></script>
+    <script src="js/angular-ui-router/angular-ui-router.js"></script>
+    <script src="js/angular-data-grid/dist/pagination.js"></script>
+    <script src="js/angular-data-grid/dist/dataGrid.min.js"></script>
+    <!--<script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>-->
+
+
+    <script src="client/app.js"></script>
+    <script src="client/services/accountService.js"></script>
+    <script src="client/services/userService.js"></script>
+    <script src="client/services/dataService.js"></script>
+    <script src="client/controller/homeCtrl.js"></script>
+    <!--<script src="client/services/noticeService.js"></script>-->
+    <script src="client/services/employeeservice.js"></script>
+
+    <script src="client/controller/authorizeCtrl.js"></script>
+    <script src="client/controller/loginCtrl.js"></script>
+    <script src="client/controller/unauthorizeCtrl.js"></script>
+    <script src="client/controller/registerCtrl.js"></script>
+    <script src="client/controller/roleCtrl.js"></script>
+    <script src="client/controller/notificationCtrl.js"></script>
+    <!--<script src="client/controller/noticeCtrl.js"></script>-->
+    <script src="client/controller/homeCtrl.js"></script>
+    <script src="client/controller/employeeCtrl.js"></script>
+    <!--<script src="client/controller/studentCtrl.js"></script>
+    <script src="client/services/studentService.js"></script>-->
+    <script src="client/controller/departmentCtrl.js"></script>
+    <script src="client/services/departmentService.js"></script>
+
+    <script>
+        $.ajaxPrefilter(function
+              (options, originalOptions, jqXHR)
+        { options.async = true; });
+    </script>
+</body>
+</html>

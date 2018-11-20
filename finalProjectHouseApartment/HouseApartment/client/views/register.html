@@ -1,0 +1,77 @@
+﻿<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- CSS-->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- Font-icon css-->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>House Apartment</title>
+
+<body>
+    <section class="material-half-bg">
+        <div class="cover"></div>
+    </section>
+    <section class="login-content">
+        <div class="logo">
+            <h1>House Apartment</h1>
+        </div>
+     
+                <div class="card" style="width:40% !important">
+                    <h3 class="card-title">Register</h3>
+                    
+                        <form ng-submit="Create(vm.CreateUser)">
+                            <div class="form-group">
+                                <label class="control-label">First Name</label>
+                                <input class="form-control" type="text" placeholder="First Name" ng-model=" vm.CreateUser.FirstName">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> Last Name</label>
+                                <input class="form-control" type="text" placeholder="Last Name" ng-model=" vm.CreateUser.LastName">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> UserName Name</label>
+                                <input class="form-control" type="text" placeholder="User Name" ng-model=" vm.CreateUser.Username">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> Password</label>
+                                <input class="form-control" type="password" placeholder="Password" ng-model=" vm.CreateUser.Password">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> Confirm Password</label>
+                                <input class="form-control" type="password" placeholder="Confirm Password" ng-model=" vm.CreateUser.ConfirmPassword">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Email</label>
+                                <input class="form-control" type="email" placeholder="Enter email address" ng-model=" vm.CreateUser.EmailID">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Date of Birth</label>
+                                <input class="form-control" placeholder="Enter your Birth Date" id="demoDate" ng-model=" vm.CreateUser.DateOfBirth">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model=" vm.CreateUser.IsChecked">I accept the terms and conditions
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary icon-btn"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>
+                                <button type="button" ng-click="loginpage()" class="btn btn-primary icon-btn"><i class="fa fa-fw fa-lg fa-check-circle"></i>Login</button>
+                            </div>
+                        </form>
+                
+
+                </div>
+
+    </section>
+
+</body>
+
+<script type="text/javascript">
+            $('#demoDate').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                todayHighlight: true
+            });
+</script>
+
